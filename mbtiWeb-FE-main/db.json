@@ -1,0 +1,1708 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "text": "여러 사람과 함께 활동할 때 에너지가 빠르게 충전되는 편이다.",
+      "dimension": "EI"
+    },
+    {
+      "id": "2",
+      "text": "하루 일과 후에는 혼자만의 시간이 꼭 필요하다.",
+      "dimension": "EI",
+      "reverse": true
+    },
+    {
+      "id": "3",
+      "text": "장기간 이어지는 사회적 활동은 나를 쉽게 지치게 한다.",
+      "dimension": "EI",
+      "reverse": true
+    },
+    {
+      "id": "4",
+      "text": "정보는 구체적 사실과 경험을 중심으로 이해하는 편이다.",
+      "dimension": "SN"
+    },
+    {
+      "id": "5",
+      "text": "새로운 아이디어나 가능성을 상상할 때 에너지가 생긴다.",
+      "dimension": "SN",
+      "reverse": true
+    },
+    {
+      "id": "6",
+      "text": "미래의 가능성과 잠재력을 먼저 떠올린다.",
+      "dimension": "SN",
+      "reverse": true
+    },
+    {
+      "id": "7",
+      "text": "의사결정을 할 때 사실과 논리를 우선한다.",
+      "dimension": "TF"
+    },
+    {
+      "id": "8",
+      "text": "타인의 감정을 고려하지 않으면 결정하기 어렵다.",
+      "dimension": "TF",
+      "reverse": true
+    },
+    {
+      "id": "9",
+      "text": "누군가 속상해 보이면 자연스럽게 정서적으로 반응하게 된다.",
+      "dimension": "TF",
+      "reverse": true
+    },
+    {
+      "id": "10",
+      "text": "계획을 미리 세우고 일정에 맞추어 행동하는 편이다.",
+      "dimension": "JP"
+    },
+    {
+      "id": "11",
+      "text": "일정한 구조 없이 유연하게 흐름을 따라가는 편이다.",
+      "dimension": "JP",
+      "reverse": true
+    },
+    {
+      "id": "12",
+      "text": "갑작스러운 변화에도 즉흥적으로 잘 대응한다.",
+      "dimension": "JP",
+      "reverse": true
+    },
+    {
+      "id": "13",
+      "text": "넓은 인간관계보다 소수의 깊은 관계를 선호한다.",
+      "subtype": "ST",
+      "reverse": true
+    },
+    {
+      "id": "14",
+      "text": "파티나 모임에 가느니 조용한 장소에서 친한 사람과 대화하는 것이 더 좋다.",
+      "subtype": "ST",
+      "reverse": true
+    },
+    {
+      "id": "15",
+      "text": "상상과 내적 사고에 몰입하다 시간이 훌쩍 지나가기도 한다.",
+      "subtype": "ST"
+    },
+    {
+      "id": "16",
+      "text": "창의적·개념적 사고가 자연스럽게 떠오르는 편이다.",
+      "subtype": "ST"
+    },
+    {
+      "id": "17",
+      "text": "새로운 사람들과 대화할 때 긴장이나 불안이 생긴다.",
+      "subtype": "AR"
+    },
+    {
+      "id": "18",
+      "text": "사회적 상황을 떠올리면 미리 걱정이 생기기도 한다.",
+      "subtype": "AR"
+    },
+    {
+      "id": "19",
+      "text": "행동하기 전에 충분히 생각하고 상황을 관찰하는 편이다.",
+      "subtype": "AR",
+      "reverse": true
+    },
+    {
+      "id": "20",
+      "text": "즉흥적 행동보다 계획적이고 신중한 행동을 선호한다.",
+      "subtype": "AR",
+      "reverse": true
+    },
+    {
+      "id": "21",
+      "text": "새로운 사람들과 네트워킹하거나 대화하는 것이 즐겁다.",
+      "subtype": "AF"
+    },
+    {
+      "id": "22",
+      "text": "모임에서 자연스럽게 사람들에게 먼저 다가가는 편이다.",
+      "subtype": "AF"
+    },
+    {
+      "id": "23",
+      "text": "경쟁 상황이나 성취 목표가 주어지면 동기부여가 강해진다.",
+      "subtype": "AF",
+      "reverse": true
+    },
+    {
+      "id": "24",
+      "text": "리더십을 발휘할 기회가 있을 때 적극적으로 나선다.",
+      "subtype": "AF",
+      "reverse": true
+    }
+  ],
+  "results": [
+    {
+      "id": "0",
+      "answers": [],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 가장 강하게 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "557b",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": -2
+        },
+        {
+          "questionId": "3",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": 0
+        },
+        {
+          "questionId": "5",
+          "score": 1
+        },
+        {
+          "questionId": "6",
+          "score": 3
+        },
+        {
+          "questionId": "7",
+          "score": 2
+        },
+        {
+          "questionId": "8",
+          "score": -2
+        },
+        {
+          "questionId": "9",
+          "score": 0
+        },
+        {
+          "questionId": "10",
+          "score": 3
+        },
+        {
+          "questionId": "11",
+          "score": -2
+        },
+        {
+          "questionId": "12",
+          "score": -1
+        },
+        {
+          "questionId": "13",
+          "score": 1
+        },
+        {
+          "questionId": "14",
+          "score": 2
+        },
+        {
+          "questionId": "15",
+          "score": 1
+        },
+        {
+          "questionId": "16",
+          "score": -2
+        },
+        {
+          "questionId": "17",
+          "score": -1
+        },
+        {
+          "questionId": "18",
+          "score": 1
+        },
+        {
+          "questionId": "19",
+          "score": 0
+        },
+        {
+          "questionId": "20",
+          "score": -2
+        },
+        {
+          "questionId": "21",
+          "score": -2
+        },
+        {
+          "questionId": "22",
+          "score": 3
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": 1
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "07d8",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -3
+        },
+        {
+          "questionId": "2",
+          "score": -2
+        },
+        {
+          "questionId": "3",
+          "score": -1
+        },
+        {
+          "questionId": "4",
+          "score": 0
+        },
+        {
+          "questionId": "5",
+          "score": 1
+        },
+        {
+          "questionId": "6",
+          "score": 2
+        },
+        {
+          "questionId": "7",
+          "score": 3
+        },
+        {
+          "questionId": "8",
+          "score": 2
+        },
+        {
+          "questionId": "9",
+          "score": 1
+        },
+        {
+          "questionId": "10",
+          "score": 0
+        },
+        {
+          "questionId": "11",
+          "score": -2
+        },
+        {
+          "questionId": "12",
+          "score": -2
+        },
+        {
+          "questionId": "13",
+          "score": -1
+        },
+        {
+          "questionId": "14",
+          "score": -3
+        },
+        {
+          "questionId": "15",
+          "score": 1
+        },
+        {
+          "questionId": "16",
+          "score": 3
+        },
+        {
+          "questionId": "17",
+          "score": 2
+        },
+        {
+          "questionId": "18",
+          "score": 1
+        },
+        {
+          "questionId": "19",
+          "score": -1
+        },
+        {
+          "questionId": "20",
+          "score": 0
+        },
+        {
+          "questionId": "21",
+          "score": 0
+        },
+        {
+          "questionId": "22",
+          "score": -1
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": 3
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "adab",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": 0
+        },
+        {
+          "questionId": "3",
+          "score": 1
+        },
+        {
+          "questionId": "4",
+          "score": 3
+        },
+        {
+          "questionId": "5",
+          "score": 2
+        },
+        {
+          "questionId": "6",
+          "score": -1
+        },
+        {
+          "questionId": "7",
+          "score": -2
+        },
+        {
+          "questionId": "8",
+          "score": 1
+        },
+        {
+          "questionId": "9",
+          "score": 0
+        },
+        {
+          "questionId": "10",
+          "score": 3
+        },
+        {
+          "questionId": "11",
+          "score": -1
+        },
+        {
+          "questionId": "12",
+          "score": -2
+        },
+        {
+          "questionId": "13",
+          "score": -3
+        },
+        {
+          "questionId": "14",
+          "score": 2
+        },
+        {
+          "questionId": "15",
+          "score": 1
+        },
+        {
+          "questionId": "16",
+          "score": 0
+        },
+        {
+          "questionId": "17",
+          "score": -2
+        },
+        {
+          "questionId": "18",
+          "score": 1
+        },
+        {
+          "questionId": "19",
+          "score": 2
+        },
+        {
+          "questionId": "20",
+          "score": 3
+        },
+        {
+          "questionId": "21",
+          "score": -1
+        },
+        {
+          "questionId": "22",
+          "score": 1
+        },
+        {
+          "questionId": "23",
+          "score": -1
+        },
+        {
+          "questionId": "24",
+          "score": 2
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "c5cd",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -1
+        },
+        {
+          "questionId": "2",
+          "score": -2
+        },
+        {
+          "questionId": "3",
+          "score": 3
+        },
+        {
+          "questionId": "4",
+          "score": 2
+        },
+        {
+          "questionId": "5",
+          "score": 0
+        },
+        {
+          "questionId": "6",
+          "score": -1
+        },
+        {
+          "questionId": "7",
+          "score": 1
+        },
+        {
+          "questionId": "8",
+          "score": -2
+        },
+        {
+          "questionId": "9",
+          "score": -3
+        },
+        {
+          "questionId": "10",
+          "score": 3
+        },
+        {
+          "questionId": "20",
+          "score": -2
+        },
+        {
+          "questionId": "19",
+          "score": 0
+        },
+        {
+          "questionId": "18",
+          "score": -2
+        },
+        {
+          "questionId": "17",
+          "score": 2
+        },
+        {
+          "questionId": "16",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": 3
+        },
+        {
+          "questionId": "14",
+          "score": -2
+        },
+        {
+          "questionId": "13",
+          "score": -3
+        },
+        {
+          "questionId": "12",
+          "score": 1
+        },
+        {
+          "questionId": "11",
+          "score": 1
+        },
+        {
+          "questionId": "21",
+          "score": -2
+        },
+        {
+          "questionId": "22",
+          "score": 2
+        },
+        {
+          "questionId": "23",
+          "score": 3
+        },
+        {
+          "questionId": "24",
+          "score": 1
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "b139",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -3
+        },
+        {
+          "questionId": "2",
+          "score": -2
+        },
+        {
+          "questionId": "3",
+          "score": -1
+        },
+        {
+          "questionId": "4",
+          "score": 0
+        },
+        {
+          "questionId": "5",
+          "score": 1
+        },
+        {
+          "questionId": "6",
+          "score": 2
+        },
+        {
+          "questionId": "7",
+          "score": 3
+        },
+        {
+          "questionId": "8",
+          "score": 2
+        },
+        {
+          "questionId": "9",
+          "score": 1
+        },
+        {
+          "questionId": "10",
+          "score": 0
+        },
+        {
+          "questionId": "11",
+          "score": -2
+        },
+        {
+          "questionId": "12",
+          "score": -1
+        },
+        {
+          "questionId": "13",
+          "score": -1
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": -3
+        },
+        {
+          "questionId": "16",
+          "score": -2
+        },
+        {
+          "questionId": "17",
+          "score": 3
+        },
+        {
+          "questionId": "18",
+          "score": 2
+        },
+        {
+          "questionId": "19",
+          "score": 1
+        },
+        {
+          "questionId": "20",
+          "score": 2
+        },
+        {
+          "questionId": "21",
+          "score": 0
+        },
+        {
+          "questionId": "22",
+          "score": -1
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": 3
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "8d1e",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": -1
+        },
+        {
+          "questionId": "3",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": 3
+        },
+        {
+          "questionId": "5",
+          "score": 0
+        },
+        {
+          "questionId": "6",
+          "score": -3
+        },
+        {
+          "questionId": "7",
+          "score": -2
+        },
+        {
+          "questionId": "8",
+          "score": -1
+        },
+        {
+          "questionId": "9",
+          "score": 1
+        },
+        {
+          "questionId": "10",
+          "score": 2
+        },
+        {
+          "questionId": "11",
+          "score": 0
+        },
+        {
+          "questionId": "12",
+          "score": 3
+        },
+        {
+          "questionId": "13",
+          "score": 2
+        },
+        {
+          "questionId": "14",
+          "score": -2
+        },
+        {
+          "questionId": "15",
+          "score": -3
+        },
+        {
+          "questionId": "16",
+          "score": 0
+        },
+        {
+          "questionId": "17",
+          "score": -1
+        },
+        {
+          "questionId": "18",
+          "score": 1
+        },
+        {
+          "questionId": "19",
+          "score": 2
+        },
+        {
+          "questionId": "20",
+          "score": 3
+        },
+        {
+          "questionId": "21",
+          "score": -1
+        },
+        {
+          "questionId": "22",
+          "score": -1
+        },
+        {
+          "questionId": "23",
+          "score": 1
+        },
+        {
+          "questionId": "24",
+          "score": 2
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "imageUrl": "/images/INTJ.png",
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "/images/thinking_introvert.png",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "3bf6",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": -1
+        },
+        {
+          "questionId": "3",
+          "score": 0
+        },
+        {
+          "questionId": "4",
+          "score": 1
+        },
+        {
+          "questionId": "5",
+          "score": 3
+        },
+        {
+          "questionId": "6",
+          "score": 2
+        },
+        {
+          "questionId": "7",
+          "score": 2
+        },
+        {
+          "questionId": "8",
+          "score": -3
+        },
+        {
+          "questionId": "9",
+          "score": -2
+        },
+        {
+          "questionId": "10",
+          "score": 1
+        },
+        {
+          "questionId": "11",
+          "score": -1
+        },
+        {
+          "questionId": "12",
+          "score": 2
+        },
+        {
+          "questionId": "13",
+          "score": 2
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": 3
+        },
+        {
+          "questionId": "16",
+          "score": -2
+        },
+        {
+          "questionId": "17",
+          "score": -3
+        },
+        {
+          "questionId": "18",
+          "score": -1
+        },
+        {
+          "questionId": "19",
+          "score": 1
+        },
+        {
+          "questionId": "20",
+          "score": 0
+        },
+        {
+          "questionId": "21",
+          "score": -1
+        },
+        {
+          "questionId": "22",
+          "score": 2
+        },
+        {
+          "questionId": "23",
+          "score": 3
+        },
+        {
+          "questionId": "24",
+          "score": -2
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "dd2f",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": 0
+        },
+        {
+          "questionId": "2",
+          "score": 3
+        },
+        {
+          "questionId": "3",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": -1
+        },
+        {
+          "questionId": "5",
+          "score": -2
+        },
+        {
+          "questionId": "6",
+          "score": -3
+        },
+        {
+          "questionId": "7",
+          "score": 0
+        },
+        {
+          "questionId": "8",
+          "score": 2
+        },
+        {
+          "questionId": "9",
+          "score": 3
+        },
+        {
+          "questionId": "10",
+          "score": 1
+        },
+        {
+          "questionId": "11",
+          "score": -3
+        },
+        {
+          "questionId": "12",
+          "score": -1
+        },
+        {
+          "questionId": "13",
+          "score": -2
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": 2
+        },
+        {
+          "questionId": "16",
+          "score": 3
+        },
+        {
+          "questionId": "17",
+          "score": 0
+        },
+        {
+          "questionId": "18",
+          "score": 3
+        },
+        {
+          "questionId": "19",
+          "score": 2
+        },
+        {
+          "questionId": "20",
+          "score": 1
+        },
+        {
+          "questionId": "21",
+          "score": -1
+        },
+        {
+          "questionId": "22",
+          "score": 3
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": -2
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "f193",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": -1
+        },
+        {
+          "questionId": "3",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": 1
+        },
+        {
+          "questionId": "5",
+          "score": 3
+        },
+        {
+          "questionId": "6",
+          "score": -2
+        },
+        {
+          "questionId": "7",
+          "score": -1
+        },
+        {
+          "questionId": "8",
+          "score": -3
+        },
+        {
+          "questionId": "9",
+          "score": 0
+        },
+        {
+          "questionId": "10",
+          "score": 1
+        },
+        {
+          "questionId": "11",
+          "score": -2
+        },
+        {
+          "questionId": "12",
+          "score": 2
+        },
+        {
+          "questionId": "13",
+          "score": 1
+        },
+        {
+          "questionId": "14",
+          "score": -2
+        },
+        {
+          "questionId": "15",
+          "score": 0
+        },
+        {
+          "questionId": "16",
+          "score": -1
+        },
+        {
+          "questionId": "17",
+          "score": 1
+        },
+        {
+          "questionId": "18",
+          "score": 3
+        },
+        {
+          "questionId": "19",
+          "score": 0
+        },
+        {
+          "questionId": "20",
+          "score": -1
+        },
+        {
+          "questionId": "21",
+          "score": 0
+        },
+        {
+          "questionId": "22",
+          "score": 0
+        },
+        {
+          "questionId": "23",
+          "score": 1
+        },
+        {
+          "questionId": "24",
+          "score": 2
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "097c",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": 1
+        },
+        {
+          "questionId": "3",
+          "score": 3
+        },
+        {
+          "questionId": "4",
+          "score": 2
+        },
+        {
+          "questionId": "5",
+          "score": 1
+        },
+        {
+          "questionId": "6",
+          "score": -2
+        },
+        {
+          "questionId": "7",
+          "score": -3
+        },
+        {
+          "questionId": "8",
+          "score": -1
+        },
+        {
+          "questionId": "9",
+          "score": 1
+        },
+        {
+          "questionId": "10",
+          "score": 0
+        },
+        {
+          "questionId": "11",
+          "score": -1
+        },
+        {
+          "questionId": "12",
+          "score": -2
+        },
+        {
+          "questionId": "13",
+          "score": -3
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": 2
+        },
+        {
+          "questionId": "16",
+          "score": 3
+        },
+        {
+          "questionId": "17",
+          "score": 0
+        },
+        {
+          "questionId": "18",
+          "score": -2
+        },
+        {
+          "questionId": "19",
+          "score": 1
+        },
+        {
+          "questionId": "20",
+          "score": 1
+        },
+        {
+          "questionId": "21",
+          "score": 2
+        },
+        {
+          "questionId": "22",
+          "score": -2
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": 3
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "7542",
+      "answers": [
+        {
+          "questionId": "1",
+          "score": -1
+        },
+        {
+          "questionId": "2",
+          "score": 3
+        },
+        {
+          "questionId": "3",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": -2
+        },
+        {
+          "questionId": "5",
+          "score": 0
+        },
+        {
+          "questionId": "6",
+          "score": 3
+        },
+        {
+          "questionId": "7",
+          "score": 2
+        },
+        {
+          "questionId": "8",
+          "score": -1
+        },
+        {
+          "questionId": "9",
+          "score": -2
+        },
+        {
+          "questionId": "10",
+          "score": -3
+        },
+        {
+          "questionId": "11",
+          "score": -2
+        },
+        {
+          "questionId": "12",
+          "score": 2
+        },
+        {
+          "questionId": "13",
+          "score": 3
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": -2
+        },
+        {
+          "questionId": "16",
+          "score": -3
+        },
+        {
+          "questionId": "17",
+          "score": -1
+        },
+        {
+          "questionId": "18",
+          "score": 2
+        },
+        {
+          "questionId": "19",
+          "score": 3
+        },
+        {
+          "questionId": "20",
+          "score": 1
+        },
+        {
+          "questionId": "21",
+          "score": -2
+        },
+        {
+          "questionId": "22",
+          "score": 3
+        },
+        {
+          "questionId": "23",
+          "score": 2
+        },
+        {
+          "questionId": "24",
+          "score": 1
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    },
+    {
+      "id": "b8c7",
+      "answers": [
+        {
+          "questionId": "10",
+          "score": -1
+        },
+        {
+          "questionId": "9",
+          "score": 1
+        },
+        {
+          "questionId": "8",
+          "score": -2
+        },
+        {
+          "questionId": "7",
+          "score": -3
+        },
+        {
+          "questionId": "6",
+          "score": 0
+        },
+        {
+          "questionId": "5",
+          "score": 2
+        },
+        {
+          "questionId": "4",
+          "score": 3
+        },
+        {
+          "questionId": "3",
+          "score": -2
+        },
+        {
+          "questionId": "2",
+          "score": 2
+        },
+        {
+          "questionId": "1",
+          "score": 0
+        },
+        {
+          "questionId": "11",
+          "score": -3
+        },
+        {
+          "questionId": "12",
+          "score": 3
+        },
+        {
+          "questionId": "13",
+          "score": 2
+        },
+        {
+          "questionId": "14",
+          "score": 1
+        },
+        {
+          "questionId": "15",
+          "score": 3
+        },
+        {
+          "questionId": "16",
+          "score": -2
+        },
+        {
+          "questionId": "17",
+          "score": 1
+        },
+        {
+          "questionId": "18",
+          "score": 3
+        },
+        {
+          "questionId": "19",
+          "score": -2
+        },
+        {
+          "questionId": "20",
+          "score": -3
+        },
+        {
+          "questionId": "21",
+          "score": -2
+        },
+        {
+          "questionId": "22",
+          "score": 2
+        },
+        {
+          "questionId": "23",
+          "score": 0
+        },
+        {
+          "questionId": "24",
+          "score": 3
+        }
+      ],
+      "type": "INTJ",
+      "description": "당신은 냉철한 논리력과 혁신적인 통찰력을 겸비한 마스터마인드(Mastermind) 유형입니다. 미래를 설계하는 건축가처럼, 계획적이고 전략적인 접근을 선호합니다.",
+      "scores": {
+        "EI": 10,
+        "SN": -5,
+        "TF": 3,
+        "JP": -15
+      },
+      "dimensionInterpretations": {
+        "EI_text": null,
+        "SN_text": null,
+        "TF_text": null,
+        "JP_text": null
+      },
+      "subtypeCode": "TI",
+      "subtypeName": "사색적 내향 (Thinking Introvert)",
+      "subtypeEmoji": "🧠",
+      "subtypeDescription": "내면의 상상과 개념적 사고에 몰두하며 지적인 호기심이 강합니다.",
+      "subtypeImageUrl": "https://via.placeholder.com/300x300?text=Subtype+TI+Image",
+      "subtypeScores": {
+        "ST": 5,
+        "AR": -3,
+        "AF": 8
+      },
+      "subtypeAnalysis": {
+        "analysis_text": "당신의 내향성은 사색적(Thinking) 서브타입에 의해 주도됩니다. 이는 복잡한 개념에 깊이 몰두하고, 새로운 아이디어를 창출하는 내면의 에너지로 작용합니다."
+      }
+    }
+  ]
+}
