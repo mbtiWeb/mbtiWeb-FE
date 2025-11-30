@@ -2,7 +2,7 @@ import { StrictMode, createElement } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import mainPage from "./pages/mainPage.js";
-//import showAllTypePage from "./pages/showAllTypePage.js";
+import showAllTypePage from "./pages/showAllTypePage.js";
 
 createRoot(document.getElementById('root')).render(
     createElement(
@@ -19,14 +19,12 @@ createRoot(document.getElementById('root')).render(
                         key: "main",
                         path: "/",
                         element: createElement(mainPage)
-                    })
-                    /*
+                    }),
                     createElement(Route, {
                         key: "showAll",
-                        path: "/ShowAllTypePage",
+                        path: "/showAllTypePage",
                         element: createElement(showAllTypePage)
                     })
-                    */
                 ]
             )
         )
