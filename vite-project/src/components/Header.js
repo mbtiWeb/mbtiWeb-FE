@@ -1,5 +1,5 @@
 import React, { createElement } from "react";
-import "./header.css";
+import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
 function Header() {

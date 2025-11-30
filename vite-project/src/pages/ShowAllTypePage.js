@@ -1,6 +1,6 @@
 import React, { createElement, useEffect, useState } from "react";
-import "./showAllTypePage.css";
-import header from "../components/header.js";
+import "./ShowAllTypePage.css";
+import Header from "../components/Header.js";
 
 function ShowAllTypePage() {
     const [mbtiList, setMbtiList] = useState([]);
@@ -92,7 +92,7 @@ function ShowAllTypePage() {
         "div",
         { className: "home-container" },
         [
-            createElement(header, { key: "header" }),
+            createElement(Header, { key: "header" }),
 
             createElement(
                 "section",

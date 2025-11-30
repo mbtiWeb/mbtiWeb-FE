@@ -1,9 +1,9 @@
 import React from "react";
-import "./mainPage.css";
+import "./MainPage.css";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header.js";   // ← header.js 불러오기
+import Header from "../components/Header.js";
 
-function mainPage() {
+function MainPage() {
     const navigate = useNavigate();
 
     return React.createElement(
@@ -38,7 +38,7 @@ function mainPage() {
                     "button",
                     {
                         className: "view-all-btn",
-                        onClick: () => navigate("/showAllTypePage")
+                        onClick: () => navigate("/ShowAllTypePage")
                     },
                     "모든 유형 보기"
                 )
@@ -132,4 +132,4 @@ function mainPage() {
     );
 }
 
-export default mainPage;
+export default MainPage;
