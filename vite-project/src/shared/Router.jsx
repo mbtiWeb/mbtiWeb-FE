@@ -1,12 +1,12 @@
-// src/shared/Router.js (수정된 전체 코드)
+// src/shared/Router.jsx (수정된 전체 코드)
 
 import React, { useState }from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import MainPage from '../pages/mainPage';
-import Result from '../pages/Result';
-import Test from '../pages/Test';
-import ShowAllTypePage from '../pages/showAllTypePage';
-import Layout from './layout'; 
+import MainPage from '../pages/MainPage.jsx';
+import Result from '../pages/Result.jsx';
+import Test from '../pages/Test.jsx';
+import ShowAllTypePage from '../pages/ShowAllTypePage.jsx';
+import Layout from './layout.jsx';
 
 const Router = () => {
     // 1. ⚛️ 최종 결과 객체 대신, 결과 조회에 사용할 ID만 저장합니다.
@@ -20,7 +20,6 @@ const Router = () => {
     };
 
     return (
-        <BrowserRouter>
             <Layout>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
@@ -40,8 +39,7 @@ const Router = () => {
                     <Route path="showAllTypePage" element={<ShowAllTypePage />} />
                 </Routes>
             </Layout>
-            
-        </BrowserRouter>
+
     );
 };
 

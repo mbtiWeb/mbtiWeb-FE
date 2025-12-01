@@ -234,7 +234,7 @@ body {
     background-color: #8b5cf6; /* bg-purple-600 */
 }
 
-/* --- Navigation Buttons (Test.js 하단) --- */
+/* --- Navigation Buttons (Test.jsx 하단) --- */
 .nav-buttons-wrapper {
     display: flex;
     align-items: center;
