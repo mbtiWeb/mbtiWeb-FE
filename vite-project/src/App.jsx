@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import '../../mbtiWeb-FE-main/src/App.css';
+import './App.css';
 import Router from './shared/Router.jsx';
 import {BrowserRouter} from 'react-router-dom';
 
