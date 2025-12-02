@@ -8,13 +8,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    flex-wrap: wrap;
+    padding: 0 5%;
+    flex-wrap: nowrap;
+    height: 65px;
+    box-sizing: border-box;
+
 }
 /* 로고 */
 .logo {
     font-size: 20px;
     font-weight: bold;
+    height: 100%;
+    line-height: 1;
 }
 /* 네비게이션 메뉴 */
 .nav-menu {
@@ -27,7 +32,7 @@ body {
 .alltype-button {
     background: transparent;
     border: none;
-    padding: 8px 16px;
+    padding: 0 16px;
     transition: transform 0.25s ease, background-color 0.25s ease;
     cursor: pointer;
     font-size: clamp(14px, 2vw, 16px);
@@ -45,6 +50,10 @@ body {
 }
 /* 반응형 */
 @media (max-width: 600px) {
+    .nav-bar{
+        padding: 12PX 4%;
+        height: 70px;
+    }
     .nav-menu button {
         margin-left: 10px;
     }
