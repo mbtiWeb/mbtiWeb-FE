@@ -51,7 +51,7 @@ body {
 /* 반응형 */
 @media (max-width: 600px) {
     .nav-bar{
-        padding: 12PX 4%;
+        padding: 12px 4%;
         height: 70px;
     }
     .nav-menu button {

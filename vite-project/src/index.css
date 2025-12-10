@@ -8,12 +8,16 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    /*background-color: #242424;*/
+    background-color: #4e15bf;
+
+    overflow-x: hidden;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
 }
 
 /* Vite 기본 링크 스타일 */
@@ -33,14 +37,18 @@ body {
     margin: 0;
     padding: 0;
     min-width: 320px;
-    min-height: 100vh;
-    display: flex;
-    place-items: center; /* Vite 기본 */
-    flex-direction: column; /* 네 root 레이아웃과 충돌 방지 */
+    min-height: 100dvh;
 
+
+    /*display: flex;*/
+    /*place-items: center;  Vite 기본 */
+    /*flex-direction: column;  네 root 레이아웃과 충돌 방지 */
+
+    background: linear-gradient(180deg, #ffeafd, #ffffff);
     font-family: inherit;
-    background-color: #f7f3ff; /* 네 배경색 우선 적용 */
+    /*background-color: #f7f3ff;  네 배경색 우선 적용 */
     color: #333; /* 네 텍스트 색 적용 */
+    overflow-x: hidden;
 }
 
 /* Root Layout */
@@ -206,6 +214,7 @@ body {
     display: flex;
     gap: 0.5rem;
     flex: 1;
+    /*overflow: hidden;*/
 }
 
 .answer-button {
