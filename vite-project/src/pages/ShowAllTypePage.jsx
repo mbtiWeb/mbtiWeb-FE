@@ -8,6 +8,13 @@ function ShowAllTypePage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const toImageSlug = (type) => {
+        return type
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, "_");
+        };
+
     useEffect(() => {
         fetch("http://15.164.52.207:8080/api/mbti/all")
             .then((res) => {
@@ -17,7 +24,7 @@ function ShowAllTypePage() {
             .then((data) => {
                 const transData = data.map(item => ({
                     id: item.id,
-                    imgUrl: item.img_url,
+                    imgUrl: `/images/${toImageSlug(item.type)}.png`,
                     isSubtype: item.is_subtype,
                     summary: item.summary,
                     type: item.type
