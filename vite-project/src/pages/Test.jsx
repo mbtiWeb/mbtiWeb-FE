@@ -215,10 +215,14 @@ const Test = ({ onComplete }) => {
 
                         return (
                             <div key={questionId} className="question-item">
-                                <div className="question-number-wrapper">
-                                    <span className="question-number-badge">{questionNumber}</span>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+                                    <div className="question-number-wrapper" style={{ flexShrink: 0, margin: 0 }}>
+                                        <span className="question-number-badge">{questionNumber}</span>
+                                    </div>
+                                    <p className="question-text" style={{ textAlign: 'left', margin: 0, fontSize: '1.1rem', fontWeight: '500' }}>
+                                        {questionText}
+                                    </p>
                                 </div>
-                                <p className="question-text">{questionText}</p>
 
                                 <div className="answer-options-wrapper">
                                     <span className="answer-label">전혀<br/>아니다</span>
