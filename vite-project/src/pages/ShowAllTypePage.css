@@ -81,6 +81,13 @@ html,body {
 }
 
 @media(max-width: 768px){
+    .mbti-card-summary{
+        font-size: clamp(14px, 3.2vw, 15px);
+        line-height: 1.4;
+    }
+    .mbti-card-title{
+        font-size: 22px;
+    }
     .grid-container {
         width: 100%;
         max-width: 100%;
