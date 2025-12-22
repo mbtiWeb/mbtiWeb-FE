@@ -34,7 +34,7 @@ function MainPage() {
 
                 <div className="small-info">
                     <span className="info-item">
-                        <span className="dot dot-green">●</span> 20개 문항
+                        <span className="dot dot-green">●</span> 56개 문항
                     </span>
                     <span className="info-item">
                         <span className="dot dot-blue">●</span> 약 5분 소요
@@ -47,9 +47,11 @@ function MainPage() {
 
             {/* Why Section */}
             <section className="why-section">
-                <h3>왜 🙂을 선택해야 할까요?</h3>
+                <h3>
+                    왜 <span className = "logo-highlight"> SoyYo</span>를 선택해야 할까요?
+                </h3>
                 <div className="why-cards">
-                    {["정확한 분석", "트렌드 반영", "16가지 유형", "5분 완성"].map((title, i) => (
+                    {["정확한 분석", "트렌드 반영", "개인화 성격 리포트", "5분 완성"].map((title, i) => (
                         <div className="why-card" key={i}>
                             <h4>{title}</h4>
                             <p>

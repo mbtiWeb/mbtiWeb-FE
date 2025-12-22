@@ -20,6 +20,10 @@ body {
     font-weight: bold;
     height: 100%;
     line-height: 1;
+    background-image: url("/images/program_logo_1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 /* 네비게이션 메뉴 */
 .nav-menu {

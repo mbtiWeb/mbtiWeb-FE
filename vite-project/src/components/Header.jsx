@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <header className="nav-bar">
-            <div className="logo">🙂</div>
+            <div className="logo" />
             <nav className="nav-menu">
                 <button
                     className="home-button"

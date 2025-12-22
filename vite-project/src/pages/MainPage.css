@@ -82,6 +82,9 @@ body {
 .small-info {
     margin-top: 20px;
 }
+.logo-highlight{
+    color: #6a00ff;
+}
 .why-section {
     margin-top: 60px;
     padding: 0 5%;
@@ -111,6 +114,7 @@ body {
     color: #6a00ff;
     font-size: clamp(14px, 2.5vw, 18px);
 }
+
 .steps-section {
     margin-top: 70px;
     padding: 0 5%;

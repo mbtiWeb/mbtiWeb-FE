@@ -3,6 +3,8 @@ import "./ShowAllTypePage.css";
 import Header from "../components/Header.jsx";
 
 function ShowAllTypePage() {
+    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     const [mbtiList, setMbtiList] = useState([]);
     const [subtypeList, setSubtypeList] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,7 +18,7 @@ function ShowAllTypePage() {
         };
 
     useEffect(() => {
-        fetch("http://15.164.52.207:8080/api/mbti/all")
+        fetch(`${BASE_URL}/api/mbti/all`)
             .then((res) => {
                 if (!res.ok) throw new Error("서버 응답 없음");
                 return res.json();
