@@ -4,17 +4,22 @@ import html2canvas from 'html2canvas';
 import { Card } from '../components/Card.jsx';
 import { Button } from '../components/Button.jsx';
 
-const BASE_URL = 'http://15.164.52.207:8080';
+// 🎯 API 엔드포인트 설정
+const BASE_URL = 'http://52.79.114.122:8000';
 
 const Result = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const initialPostData = location.state?.resultData || null;
+    
     const [resultData, setResultData] = useState(initialPostData);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    // ✨ 서브타입 더보기 상태 (기본 1개만 노출)
+    const [subtypeLimit, setSubtypeLimit] = useState(1);
     const resultRef = useRef(null);
 
-    // 🎯 퍼센트 계산 (48점 만점 기준)
     const getDimensionPercentage = (score) => {
         if (score === undefined || score === null) return 50;
         const maxTotalScore = 48;
@@ -57,33 +62,41 @@ const Result = () => {
         const fetchDetailedResult = async () => {
             setLoading(true);
             const mbtiName = initialPostData.mbti;
-            const rawSubtypeName = initialPostData.subtype[0];
-            const readableSubtypeName = rawSubtypeName.replace(/_/g, ' ');
+            const readableSubtypeList = initialPostData.subtype.map(name => name.replace(/_/g, ' '));
 
             try {
-                const [mbtiRes, subtypeRes] = await Promise.all([
-                    fetch(`${BASE_URL}/api/mbti/${mbtiName}`),
-                    fetch(`${BASE_URL}/api/mbti/${encodeURIComponent(readableSubtypeName)}`)
-                ]);
+                const response = await fetch(`${BASE_URL}/api/mbti/summarize`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        mbti_names: [mbtiName, ...readableSubtypeList]
+                    })
+                });
 
-                const mbtiData = await mbtiRes.json();
-                const subtypeData = await subtypeRes.json();
+                if (!response.ok) throw new Error("상세 정보를 가져오는 데 실패했습니다.");
 
-                const mbtiDetails = mbtiData.data || mbtiData;
-                const subtypeDetails = subtypeData.data || subtypeData;
+                const data = await response.json();
+                
+                // 데이터 분리: 메인 유형 1개와 서브타입 배열 전체 추출
+                const mbtiInfo = data.mbti_list.find(item => !item.is_subtype) || {};
+                const allSubtypes = data.mbti_list.filter(item => item.is_subtype) || [];
+
+                const fullInstruction = data.summarized_instruction 
+                    ? Object.values(data.summarized_instruction).join('\n\n')
+                    : "";
 
                 setResultData(prev => ({
                     ...prev,
-                    mbti_img_url: mbtiDetails.img_url,
-                    summary: mbtiDetails.summary,
-                    mbti_instruction: mbtiDetails.instruction,
-                    subtype_img_url: subtypeDetails.img_url,
-                    subtype_name_detail: subtypeDetails.type,
-                    analysis_text: subtypeDetails.analysis_text || subtypeDetails.instruction,
-                    emoji: subtypeDetails.emoji,
+                    mbti_info: mbtiInfo,
+                    subtypes: allSubtypes, // ✨ 모든 서브타입을 배열로 저장
+                    summary: `${mbtiInfo.type} 분석 결과`, 
+                    mbti_instruction: fullInstruction,
+                    emoji: "✨"
                 }));
+
             } catch (err) {
                 console.error("데이터 로딩 오류", err);
+                setError(err.message);
             } finally {
                 setLoading(false);
             }
@@ -92,53 +105,80 @@ const Result = () => {
         fetchDetailedResult();
     }, [initialPostData, navigate]);
 
-    if (loading) return <div className="container" style={{ textAlign: 'center', padding: '5rem' }}>분석 중...</div>;
+    if (loading) {
+        return (
+            <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', textAlign: 'center', color: '#8b5cf6' }}>
+                <div style={{ width: '50px', height: '50px', border: '5px solid #f3f3f3', borderTop: '5px solid #8b5cf6', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '1.5rem' }} />
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>당신의 성향을 분석 중입니다...</h2>
+                <p style={{ color: '#9ca3af', fontSize: '0.95rem' }}>잠시만 기다리시면 상세한 결과 설명이 제공됩니다</p>
+                <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+            </div>
+        );
+    }
+
+    if (error) return <div className="container" style={{ textAlign: 'center', padding: '5rem', color: '#ef4444' }}>{error}</div>;
 
     return (
         <div ref={resultRef} className="container" style={{ paddingTop: '2rem', paddingBottom: '4rem', maxWidth: '750px', background: '#f9fafb', minHeight: '100vh' }}>
             <h1 className="main-heading" style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1.5rem' }}>MBTI 테스트 결과</h1>
 
-            {/* 1. 결과 요약 카드 */}
-            <Card style={{ padding: '1.25rem', textAlign: 'center', marginBottom: '1.25rem' }}>
-                <h2 style={{ fontSize: '2.2rem', color: '#8b5cf6', marginBottom: '0.5rem' }}>{resultData.mbti}</h2>
-                <img src={resultData.mbti_img_url} alt="mbti" style={{ width: '100%', maxWidth: '220px', borderRadius: '15px', margin: '0.5rem 0' }} />
-                <div style={{ marginTop: '1rem' }}>
-                    <Button onClick={handleCaptureAndSave} style={{ background: 'linear-gradient(to right, #8b5cf6, #ec4899)', border: 'none', color: '#fff' }}>
+            {/* 1. MBTI & 서브타입 리스트 카드 */}
+            <Card style={{ padding: '2rem', textAlign: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ marginBottom: '1.5rem' }}>
+                    <h2 style={{ fontSize: '2.2rem', color: '#8b5cf6', margin: 0 }}>{resultData.mbti}</h2>
+                </div>
+
+                {/* 메인 MBTI 이미지 */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                    <img src={resultData.mbti_info?.img_url} alt="mbti" style={{ width: '180px', borderRadius: '15px', border: '3px solid #f3f4f6' }} />
+                </div>
+
+                <div style={{ fontSize: '1rem', color: '#8b5cf6', marginBottom: '1.5rem' }}>▼ 당신의 서브타입 (전체 12종 중 {resultData.subtypes?.length || 0}종) ▼</div>
+
+                {/* ✨ 서브타입 리스트 렌더링 (더보기 적용) */}
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '1rem' }}>
+                    {resultData.subtypes?.slice(0, subtypeLimit).map((sub, index) => (
+                        <div key={index} style={{ textAlign: 'center', animation: 'fadeIn 0.5s ease' }}>
+                            <img src={sub.img_url} alt={sub.type} style={{ width: '140px', borderRadius: '15px', border: '3px solid #ec4899' }} />
+                            <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#ec4899', fontWeight: 'bold' }}>{sub.type}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* ✨ 서브타입 더보기 버튼 */}
+                {resultData.subtypes?.length > subtypeLimit && (
+                    <button 
+                        onClick={() => setSubtypeLimit(prev => prev + 3)} 
+                        style={{ background: '#f3f4f6', border: 'none', padding: '8px 16px', borderRadius: '20px', color: '#4b5563', cursor: 'pointer', marginBottom: '1.5rem', fontSize: '0.9rem' }}
+                    >
+                        서브타입 더보기 +({resultData.subtypes.length - subtypeLimit})
+                    </button>
+                )}
+
+                <div>
+                    <Button onClick={handleCaptureAndSave} style={{ background: 'linear-gradient(to right, #8b5cf6, #ec4899)', border: 'none', color: '#fff', padding: '0.8rem 2rem' }}>
                         💾 결과 이미지 저장
                     </Button>
                 </div>
             </Card>
 
-            {/* 2. 성향 지표 분석 (중앙 선 없음) */}
+            {/* 2. 성향 지표 분석 */}
             <Card style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', textAlign: 'center' }}>성향 지표 분석 (%)</h3>
+                <h3 style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', textAlign: 'center' }}>성향 수치 리포트</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {dimensions.map((dim) => {
                         const leftPercent = getDimensionPercentage(resultData.scores?.[dim.key]);
                         const rightPercent = 100 - leftPercent;
                         const isLeftStrong = leftPercent >= 50;
-
                         return (
                             <div key={dim.key}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', padding: '0 5px' }}>
                                     <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px' }}>{dim.left}</span>
-                                    <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 'bold' }}>
-                                        {isLeftStrong ? `${leftPercent}%` : `${rightPercent}%`}
-                                    </span>
+                                    <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 'bold' }}>{isLeftStrong ? `${leftPercent}%` : `${rightPercent}%`}</span>
                                     <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: !isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px', textAlign: 'right' }}>{dim.right}</span>
                                 </div>
                                 <div style={{ width: '100%', height: '14px', background: '#e5e7eb', borderRadius: '7px', position: 'relative', overflow: 'hidden' }}>
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: isLeftStrong ? 0 : 'auto',
-                                        right: !isLeftStrong ? 0 : 'auto',
-                                        width: `${isLeftStrong ? leftPercent : rightPercent}%`,
-                                        height: '100%',
-                                        background: 'linear-gradient(to right, #8b5cf6, #a78bfa)',
-                                        borderRadius: '7px',
-                                        transition: 'width 0.6s ease-out'
-                                    }} />
+                                    <div style={{ position: 'absolute', top: 0, left: isLeftStrong ? 0 : 'auto', right: !isLeftStrong ? 0 : 'auto', width: `${isLeftStrong ? leftPercent : rightPercent}%`, height: '100%', background: 'linear-gradient(to right, #8b5cf6, #a78bfa)', borderRadius: '7px', transition: 'width 0.6s ease-out' }} />
                                 </div>
                             </div>
                         );
@@ -146,38 +186,21 @@ const Result = () => {
                 </div>
             </Card>
 
-            {/* 3. 상세 설명 */}
-            <Card style={{ padding: '1.25rem', marginBottom: '1.25rem', borderLeft: '5px solid #8b5cf6' }}>
-                <h3 style={{ fontSize: '1.2rem', color: '#8b5cf6', marginBottom: '0.5rem' }}>{resultData.summary}</h3>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#374151', margin: 0 }}>{resultData.mbti_instruction}</p>
-            </Card>
-
-            {/* 4. 서브타입 (상하 배치 레이아웃 수정) */}
-            <Card style={{ padding: '1.5rem', border: '1.5px solid #a78bfa', textAlign: 'center' }}>
-                <h3 style={{ fontSize: '1.2rem', color: '#8b5cf6', marginBottom: '1.5rem' }}>
-                    {resultData.emoji} 서브타입: {resultData.subtype_name_detail}
+            {/* 3. 상세 분석 설명 (기존 방식 유지) */}
+            <Card style={{ padding: '1.5rem', marginBottom: '1.25rem', borderLeft: '5px solid #8b5cf6' }}>
+                <h3 style={{ fontSize: '1.3rem', color: '#8b5cf6', marginBottom: '1.2rem', textAlign: 'center' }}>
+                    {resultData.emoji} 상세 성향 분석
                 </h3>
-                
-                {/* 이미지를 먼저 중앙에 배치 */}
-                <img 
-                    src={resultData.subtype_img_url} 
-                    alt="subtype" 
-                    style={{ width: '100%', maxWidth: '180px', borderRadius: '15px', objectFit: 'cover', marginBottom: '1.5rem' }} 
-                />
-                
-                {/* 텍스트를 이미지 밑에 배치 */}
-                <div style={{ textAlign: 'left', background: '#f5f3ff', padding: '1rem', borderRadius: '12px' }}>
-                    <h4 style={{ fontSize: '1rem', color: '#4b5563', marginBottom: '0.5rem' }}>심층 분석</h4>
-                    <p style={{ fontSize: '0.95rem', color: '#374151', lineHeight: '1.6', margin: 0 }}>
-                        {resultData.analysis_text}
-                    </p>
-                </div>
+                <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0, whiteSpace: 'pre-wrap', textAlign: 'left' }}>
+                    {resultData.mbti_instruction}
+                </p>
             </Card>
 
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem', gap: '1rem' }}>
                 <Button variant="outline" onClick={() => navigate('/test')}>다시하기</Button>
                 <Button onClick={() => navigate('/')} style={{ background: '#8b5cf6', color: '#fff' }}>홈으로</Button>
             </div>
+            <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }`}</style>
         </div>
     );
 };
