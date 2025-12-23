@@ -9,7 +9,7 @@ import "../components/Header.css";
 import "../components/Header.jsx";
 
 // 🎯 실제 백엔드 기본 URL 정의
-const BASE_URL = 'http://15.164.52.207:8080';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // 답변 선택지 데이터
 const answerOptions = [
