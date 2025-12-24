@@ -201,7 +201,7 @@ const Result = () => {
                 <h3 style={{ fontSize: '1.3rem', color: '#8b5cf6', marginBottom: '1.2rem', textAlign: 'center' }}>
                     {resultData.emoji} 상세 성향 분석
                 </h3>
-                <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0, whiteSpace: 'pre-wrap', textAlign: 'left' }}>
+                <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0, whiteSpace: 'pre-wrap', textAlign: 'justify', wordBreak: 'normal' }}>
                     {resultData.mbti_instruction}
                 </p>
             </Card>
