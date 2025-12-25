@@ -172,6 +172,7 @@ body {
     .mobile-br{
         display: inline;
     }
+}
 @media (max-width: 900px) {
     .why-cards {
         flex-wrap: wrap;
