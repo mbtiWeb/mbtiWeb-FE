@@ -13,7 +13,7 @@ function MainPage() {
                 <span className="badge">New Trend MBTI Test</span>
                 <h2 className="main-title">나를 발견하는 특별한 여정</h2>
                 <p className="sub-text">
-                    MBTI와 최신 트렌드를 결합한 새로운 성격 검사로 나만의 독특한 매력과 가능성을 발견해보세요.
+                    <>MBTI와 최신 트렌드를 결합한 새로운 성격 검사로 <br />나만의 독특한 매력과 가능성을 발견해보세요.</>
                 </p>
 
                 <div className="hero-buttons">
@@ -88,7 +88,9 @@ function MainPage() {
             <section className="cta-section">
                 <p className="cta-title">지금 바로 시작해보세요</p>
                 <p className="cta-sub">
-                    수백만 명이 선택한 검사로 나의 진짜 모습을 발견하고, 새로운 가능성을 탐색해보세요.
+                    나의 진짜 모습을 발견하고, {" "}
+                    <br className="mobile-br" />
+                      새로운 가능성을 탐색해보세요.
                 </p>
                 <button
                     className="cta-btn"
