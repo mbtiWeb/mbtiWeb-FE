@@ -1,37 +1,44 @@
-import React, { createElement, useEffect, useState } from "react";
-import "./showAllTypePage.css";
+import React, { useEffect, useState } from "react";
+import "./ShowAllTypePage.css";
+import Header from "../components/Header.jsx";
+
 
 function ShowAllTypePage() {
+    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     const [mbtiList, setMbtiList] = useState([]);
     const [subtypeList, setSubtypeList] = useState([]);
-    const [loading, setLoading] = useState(true); // 로딩중 상태 확인
-    const [error, setError] = useState(null); // 에러 상태 확인
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const toImageSlug = (type) => {
+        return type
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, "_");
+        };
 
     useEffect(() => {
-
-        fetch("http://15.164.52.207:8080/api/mbti/all")
+        fetch(`${BASE_URL}/api/mbti/all`)
             .then((res) => {
                 if (!res.ok) throw new Error("서버 응답 없음");
                 return res.json();
             })
-
             .then((data) => {
                 const transData = data.map(item => ({
                     id: item.id,
-                    imgUrl: item.img_url,
+                    imgUrl: `/images/${toImageSlug(item.type)}.png`,
                     isSubtype: item.is_subtype,
                     summary: item.summary,
                     type: item.type
                 }));
 
-                // 데이터 분리해서 저장하기
                 const mbti = transData.filter(item => !item.isSubtype);
                 const subtype = transData.filter(item => item.isSubtype);
 
                 setMbtiList(mbti);
                 setSubtypeList(subtype);
             })
-
             .catch((err) => {
                 console.error("API 오류:", err);
                 setError("오류가 발생했습니다.");
@@ -39,84 +46,56 @@ function ShowAllTypePage() {
             .finally(() => setLoading(false));
     }, []);
 
-    // 로딩 중 상태 확인
     if (loading) {
-        return createElement(
-            "div",
-            { className: "home-container" },
-            createElement("div", { className: "loading" }, "데이터 불러오는 중…")
+        return (
+            <div className="home-container">
+                <div className="loading">데이터 불러오는 중…</div>
+            </div>
         );
     }
 
     if (error) {
-        return createElement(
-            "div",
-            { className: "home-container" },
-            createElement("div", { className: "error" }, error)
+        return (
+            <div className="home-container">
+                <div className="error">{error}</div>
+            </div>
         );
     }
 
-    function createCard(item) {
-        return createElement(
-            "div",
-            { className: "mbti-card-box", key: item.id },
-            [
-                createElement("img", {
-                    key: "img",
-                    src: item.imgUrl,
-                    alt: item.type,
-                    className: "mbti-card-image"
-                }),
-                createElement(
-                    "div",
-                    { key: "txt", className: "mbti-card-text" },
-                    [
-                        createElement(
-                            "h3",
-                            { key: "title", className: "mbti-card-title" },
-                            item.type
-                        ),
-                        createElement(
-                            "p",
-                            { key: "summary", className: "mbti-card-summary" },
-                            item.summary
-                        )
-                    ]
-                )
-            ]
-        );
-    }
+    // Card Component
+    const Card = ({ item }) => (
+        <div className="mbti-card-box" key={item.id}>
+            <img src={item.imgUrl} alt={item.type} className="mbti-card-image" />
+            <div className="mbti-card-text">
+                <h3 className="mbti-card-title">{item.type}</h3>
+                <p className="mbti-card-summary">{item.summary}</p>
+            </div>
+        </div>
+    );
 
-    return createElement(
-        "div",
-        { className: "home-container" },
-        [
-            createElement(
-                "section",
-                { className: "mbti-section", key: "mbti-section" },
-                [
-                    createElement("h2", { className: "section-title", key: "title1" }, "MBTI 유형"),
-                    createElement(
-                        "div",
-                        { className: "grid-container", key: "grid1" },
-                        mbtiList.map(item => createCard(item))
-                    )
-                ]
-            ),
+    return (
+        <div className="home-container">
 
-            createElement(
-                "section",
-                { className: "subtype-section", key: "subtype-section" },
-                [
-                    createElement("h2", { className: "section-title", key: "title2" }, "SUBTYPE 유형"),
-                    createElement(
-                        "div",
-                        { className: "grid-container", key: "grid2" },
-                        subtypeList.map(item => createCard(item))
-                    )
-                ]
-            )
-        ]
+            {/* MBTI 기본 유형 */}
+            <section className="mbti-section">
+                <h2 className="section-title">MBTI 유형</h2>
+                <div className="grid-container">
+                    {mbtiList.map(item => (
+                        <Card key={item.id} item={item} />
+                    ))}
+                </div>
+            </section>
+
+            {/* SUBTYPE 유형 */}
+            <section className="subtype-section">
+                <h2 className="section-title">SUBTYPE 유형</h2>
+                <div className="grid-container">
+                    {subtypeList.map(item => (
+                        <Card key={item.id} item={item} />
+                    ))}
+                </div>
+            </section>
+        </div>
     );
 }
 

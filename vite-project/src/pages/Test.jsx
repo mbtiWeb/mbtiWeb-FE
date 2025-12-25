@@ -154,7 +154,7 @@ const Test = ({ onComplete }) => {
     if (loading) {
         return (
             <div className="container" style={{ textAlign: 'center', padding: '100px 0' }}>
-                <h1 className="main-heading">질문 목록을 불러오는 중...</h1>
+                <h2 style={{ color:  '#8b5cf6', fontSize: 'clamp(1.2rem, 4vw, 1.5rem)', fontWeight: 'bold' }}>질문 목록을 불러오는 중...</h2>
                 <p style={{ color: '#6b7280' }}>서버와 연결 중입니다. 잠시만 기다려주세요.</p>
             </div>
         );

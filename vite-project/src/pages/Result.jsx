@@ -36,14 +36,24 @@ const Result = () => {
 
     const handleCaptureAndSave = async () => {
         if (!resultRef.current) return;
+        const dpr = window.devicePixelRatio || 1;
         try {
             const canvas = await html2canvas(resultRef.current, {
-                allowTaint: true,
-                useCORS: true,
-                backgroundColor: '#f9fafb',
-                scale: 2
+                useCORS: true,       // 외부 이미지 허용
+                allowTaint: false,   // 보안 설정 (CORS와 세트)
+                backgroundColor: '#f9fafb', // 배경색 명시
+                scale: 3,            // 화질 대폭 상향 (기존 2 -> 3)
+                logging: false,
+                onclone: (clonedDoc) => {
+                    // 캡처용 복사본에서 모든 이미지의 투명도를 1(선명함)로 강제 고정
+                    const images = clonedDoc.querySelectorAll('img');
+                    images.forEach(img => {
+                        img.style.opacity = "1";
+                        img.style.filter = "none";
+                    });
+                }
             });
-            const image = canvas.toDataURL('image/png');
+            const image = canvas.toDataURL('image/png', 1.0); // 최고 품질 저장
             const link = document.createElement('a');
             link.download = `MBTI_Result_${resultData?.mbti}.png`;
             link.href = image;
@@ -51,7 +61,7 @@ const Result = () => {
         } catch (err) {
             alert('이미지 저장에 실패했습니다.');
         }
-    };
+    }
 
     useEffect(() => {
         if (!initialPostData?.mbti) {
@@ -109,8 +119,7 @@ const Result = () => {
         return (
             <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', textAlign: 'center', color: '#8b5cf6' }}>
                 <div style={{ width: '50px', height: '50px', border: '5px solid #f3f3f3', borderTop: '5px solid #8b5cf6', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '1.5rem' }} />
-                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>당신의 성향을 분석 중입니다...</h2>
-                <p style={{ color: '#9ca3af', fontSize: '0.95rem' }}>잠시만 기다리시면 상세한 결과 설명이 제공됩니다</p>
+                <h2 style={{ fontSize: 'clamp(1.2rem, 4vw, 1.5rem)', fontWeight: 'bold' }}>당신의 성향을 분석 중입니다...</h2>
                 <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
             </div>
         );
@@ -133,13 +142,14 @@ const Result = () => {
                     <img src={resultData.mbti_info?.img_url} alt="mbti" style={{ width: '180px', borderRadius: '15px', border: '3px solid #f3f4f6' }} />
                 </div>
 
-                <div style={{ fontSize: '1rem', color: '#8b5cf6', marginBottom: '1.5rem' }}>▼ 당신의 서브타입 (전체 12종 중 {resultData.subtypes?.length || 0}종) ▼</div>
+                <div style={{ fontSize: '1rem', color: '#8b5cf6', marginBottom: '0.7rem', fontWeight: 'bold' }}>▼ 당신의 서브타입 ▼</div>
+                <div style={{ fontSize: '0.95rem', color: '#8b5cf6', marginBottom: '1.5rem' }}>전체 12종 중 {resultData.subtypes?.length || 0}종</div>
 
                 {/* ✨ 서브타입 리스트 렌더링 (더보기 적용) */}
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '1rem' }}>
                     {resultData.subtypes?.slice(0, subtypeLimit).map((sub, index) => (
                         <div key={index} style={{ textAlign: 'center', animation: 'fadeIn 0.5s ease' }}>
-                            <img src={sub.img_url} alt={sub.type} style={{ width: '140px', borderRadius: '15px', border: '3px solid #ec4899' }} />
+                            <img src={sub.img_url} alt={sub.type} crossOrigin="anonymous" style={{ width: '140px', borderRadius: '15px', border: '3px solid #ec4899', opacity: 1}} />
                             <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#ec4899', fontWeight: 'bold' }}>{sub.type}</p>
                         </div>
                     ))}
@@ -159,6 +169,7 @@ const Result = () => {
                     <Button onClick={handleCaptureAndSave} style={{ background: 'linear-gradient(to right, #8b5cf6, #ec4899)', border: 'none', color: '#fff', padding: '0.8rem 2rem' }}>
                         💾 결과 이미지 저장
                     </Button>
+                    <p style={{ color: '#ec4899' }}>PC에서 저장하는 걸 추천해요!</p>
                 </div>
             </Card>
 
@@ -191,7 +202,7 @@ const Result = () => {
                 <h3 style={{ fontSize: '1.3rem', color: '#8b5cf6', marginBottom: '1.2rem', textAlign: 'center' }}>
                     {resultData.emoji} 상세 성향 분석
                 </h3>
-                <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0, whiteSpace: 'pre-wrap', textAlign: 'left' }}>
+                <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0, whiteSpace: 'pre-wrap', textAlign: 'justify', wordBreak: 'normal' }}>
                     {resultData.mbti_instruction}
                 </p>
             </Card>
