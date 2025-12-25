@@ -165,6 +165,14 @@ body {
     border-radius: 30px;
     cursor: pointer;
 }
+.mobile-br{
+    display: none;
+}
+@media(max-width: 768px){
+    .mobile-br{
+        display: inline;
+    }
+}
 @media (max-width: 900px) {
     .why-cards {
         flex-wrap: wrap;
