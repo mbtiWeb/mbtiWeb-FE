@@ -169,7 +169,7 @@ const Result = () => {
                     <Button onClick={handleCaptureAndSave} style={{ background: 'linear-gradient(to right, #8b5cf6, #ec4899)', border: 'none', color: '#fff', padding: '0.8rem 2rem' }}>
                         💾 결과 이미지 저장
                     </Button>
-                    <p style={{ color: '#ec4899' }}>PC에서 저장하는 걸 추천해요!</p>
+                    <p style={{ fontSize: '0.7rem', color: '#ec4899' }}>PC에서 저장하는 걸 추천해요!</p>
                 </div>
             </Card>
 
