@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: "Pretendard", sans-serif;
 }
-/* Header 컨테이너 */
+/* Header 컨테이너
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -12,9 +12,26 @@ body {
     flex-wrap: nowrap;
     height: 65px;
     box-sizing: border-box;
+*/
+/* Header 컨테이너 */
+.nav-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 화면 가로 5등분 */
+    align-items: center;
+
+    height: 65px;
+    padding: 0 5%;
+    box-sizing: border-box;
+
+    position: absolute;
+    top:0;
+    left:0;
+    /* 페이지 레이아웃 영향 차단 */
+    width: 100%;
 
 }
-/* 로고 */
+
+/* 로고
 .logo {
     font-size: 20px;
     font-weight: bold;
@@ -24,13 +41,33 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}*/
+.logo {
+    grid-column: 1 / 2; /* 1번째 칸 */
+
+    height: 40px;
+    background-image: url("/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
 }
-/* 네비게이션 메뉴 */
+
+/* 네비게이션 메뉴
 .nav-menu {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+*/
+.nav-menu {
+    grid-column: 4 / 6; /* 4~5번째 칸 */
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
 /* 버튼 공통 스타일 */
 .home-button,
 .alltype-button {
@@ -52,7 +89,7 @@ body {
     background-color: rgba(200, 150, 255, 0.35);
     transform: translateY(-3px) scale(1.05);
 }
-/* 반응형 */
+/* 반응형
 @media (max-width: 600px) {
     .nav-bar{
         padding: 12px 4%;
@@ -60,5 +97,17 @@ body {
     }
     .nav-menu button {
         margin-left: 10px;
+    }
+}
+*/
+
+@media (max-width: 600px) {
+    .nav-bar {
+        padding: 0 4%;
+        height: 70px;
+    }
+
+    .logo {
+        height: 32px;
     }
 }

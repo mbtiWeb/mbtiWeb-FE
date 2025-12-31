@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ShowAllTypePage.css";
 import Header from "../components/Header.jsx";
 
+
 function ShowAllTypePage() {
     const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
