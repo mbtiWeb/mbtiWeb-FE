@@ -100,6 +100,9 @@ body {
     }
 }
 */
+.text-mobile{
+    display: none;
+}
 
 @media (max-width: 600px) {
     .nav-bar {
@@ -107,6 +110,13 @@ body {
         height: 70px;
     }
 
+    .text-PC{
+        display: none;
+    }
+    .text-mobile
+    {
+        display:inline;
+    }
     .logo {
         height: 32px;
     }

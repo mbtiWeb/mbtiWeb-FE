@@ -20,7 +20,10 @@ function Header() {
                     className="alltype-button"
                     onClick={() => navigate("/showAllTypePage")}
                 >
-                    모든유형
+                    <span className="text-PC">모든 유형</span>
+                    <span className="text-mobile">
+                        모든<br />유형
+                    </span>
                 </button>
             </nav>
         </header>
