@@ -164,8 +164,6 @@ const Test = ({ onComplete }) => {
         return (
             <div className="container" style={{ textAlign: 'center', padding: '100px 0' }}>
                 <h1 style={{ color: '#ef4444' }}>⚠️ 오류 발생!</h1>
-                <p style={{ color: '#374151', marginBottom: '1.5rem' }}>{error}</p>
-                <p style={{ color: '#6b7280' }}>백엔드 서버 주소 및 엔드포인트(`{BASE_URL}/api/question/all`)를 확인해주세요.</p>
                 <Button onClick={() => window.location.reload()} variant="primary" size="lg" style={{ marginTop: '1rem' }}>
                     새로고침
                 </Button>
