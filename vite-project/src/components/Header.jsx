@@ -20,7 +20,7 @@ function Header() {
                     className="alltype-button"
                     onClick={() => navigate("/showAllTypePage")}
                 >
-                    모든 유형
+                    모든유형
                 </button>
             </nav>
         </header>
