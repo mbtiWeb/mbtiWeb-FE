@@ -22,16 +22,17 @@ const Result = () => {
 
     const getDimensionPercentage = (score) => {
         if (score === undefined || score === null) return 50;
-        const maxTotalScore = 48;
-        const percentage = (score / maxTotalScore) * 100;
+        const maxScore = 35;
+        const minScore = 5;
+        const percentage = ((score - minScore) / (maxScore - minScore)) * 100;
         return Math.min(Math.round(percentage), 100);
     };
 
     const dimensions = [
-        { left: "E", right: "I", key: "E" },
+        { left: "I", right: "E", key: "I" },
         { left: "S", right: "N", key: "S" },
-        { left: "T", right: "F", key: "T" },
-        { left: "J", right: "P", key: "J" }
+        { left: "F", right: "T", key: "F" },
+        { left: "P", right: "J", key: "P" }
     ];
 
     const handleCaptureAndSave = async () => {
@@ -175,21 +176,45 @@ const Result = () => {
 
             {/* 2. 성향 지표 분석 */}
             <Card style={{ padding: '1.5rem', marginBottom: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', textAlign: 'center' }}>성향 수치 리포트</h3>
+                <h3 style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', textAlign: 'center' }}>
+                    성향 수치 리포트
+                </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {dimensions.map((dim) => {
-                        const leftPercent = getDimensionPercentage(resultData.scores?.[dim.key]);
+                        let leftPercent = getDimensionPercentage(resultData.scores?.[dim.key]);
+                
+                        if (leftPercent === 50) {
+                            leftPercent = 51;
+                        }
+
                         const rightPercent = 100 - leftPercent;
                         const isLeftStrong = leftPercent >= 50;
+
                         return (
                             <div key={dim.key}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', padding: '0 5px' }}>
-                                    <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px' }}>{dim.left}</span>
-                                    <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 'bold' }}>{isLeftStrong ? `${leftPercent}%` : `${rightPercent}%`}</span>
-                                    <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: !isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px', textAlign: 'right' }}>{dim.right}</span>
+                                    <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px' }}>
+                                        {dim.left}
+                                    </span>
+                                    <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 'bold' }}>
+                                        {isLeftStrong ? `${leftPercent}%` : `${rightPercent}%`}
+                                    </span>
+                                    <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: !isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px', textAlign: 'right' }}>
+                                        {dim.right}
+                                    </span>
                                 </div>
                                 <div style={{ width: '100%', height: '14px', background: '#e5e7eb', borderRadius: '7px', position: 'relative', overflow: 'hidden' }}>
-                                    <div style={{ position: 'absolute', top: 0, left: isLeftStrong ? 0 : 'auto', right: !isLeftStrong ? 0 : 'auto', width: `${isLeftStrong ? leftPercent : rightPercent}%`, height: '100%', background: 'linear-gradient(to right, #8b5cf6, #a78bfa)', borderRadius: '7px', transition: 'width 0.6s ease-out' }} />
+                                    <div style={{ 
+                                        position: 'absolute', 
+                                        top: 0, 
+                                        left: isLeftStrong ? 0 : 'auto', 
+                                        right: !isLeftStrong ? 0 : 'auto', 
+                                        width: `${isLeftStrong ? leftPercent : rightPercent}%`, 
+                                        height: '100%', 
+                                        background: 'linear-gradient(to right, #8b5cf6, #a78bfa)', 
+                                        borderRadius: '7px', 
+                                        transition: 'width 0.6s ease-out' 
+                                    }} />
                                 </div>
                             </div>
                         );
