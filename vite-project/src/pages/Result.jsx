@@ -22,17 +22,28 @@ const Result = () => {
 
     const getDimensionPercentage = (score) => {
         if (score === undefined || score === null) return 50;
-        const maxScore = 35;
-        const minScore = 5;
-        const percentage = ((score - minScore) / (maxScore - minScore)) * 100;
-        return Math.min(Math.round(percentage), 100);
+    
+        const neutralPoint = 20.0; 
+        const maxScore = 35.0;
+        const minScore = 5.0;
+
+        let percentage;
+        if (score > neutralPoint) {
+            percentage = 50 + ((score - neutralPoint) / (maxScore - neutralPoint)) * 50;
+        } else if (score < neutralPoint) {
+            percentage = 50 - ((neutralPoint - score) / (neutralPoint - minScore)) * 50;
+        } else {
+            percentage = 50;
+        }
+
+        return percentage;
     };
 
     const dimensions = [
-        { left: "I", right: "E", key: "I" },
-        { left: "S", right: "N", key: "S" },
-        { left: "F", right: "T", key: "F" },
-        { left: "P", right: "J", key: "P" }
+        { left: "I", right: "E", key: "E" , reverse: true},
+        { left: "S", right: "N", key: "S" , reverse: false},
+        { left: "F", right: "T", key: "T" , reverse: true},
+        { left: "P", right: "J", key: "J" , reverse: true}
     ];
 
     const handleCaptureAndSave = async () => {
@@ -181,35 +192,53 @@ const Result = () => {
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {dimensions.map((dim) => {
-                        let leftPercent = getDimensionPercentage(resultData.scores?.[dim.key]);
-                
-                        if (leftPercent === 50) {
-                            leftPercent = 51;
+                        let rawScore = resultData.scores?.[dim.key] || 20.0;
+
+                        let leftPercentRaw;
+                        if (dim.reverse) {
+                            const reversedScore = 40.0 - rawScore; 
+                            leftPercentRaw = getDimensionPercentage(reversedScore);
+                        } else {
+                            leftPercentRaw = getDimensionPercentage(rawScore);
                         }
 
-                        const rightPercent = 100 - leftPercent;
-                        const isLeftStrong = leftPercent >= 50;
+                        let finalLeftPercent = Math.floor(leftPercentRaw);
+                        if (finalLeftPercent === 50) {
+                            finalLeftPercent = 51;
+                        }
+                        const finalRightPercent = 100 - finalLeftPercent;
+                        
+                        const isLeftStrong = finalLeftPercent >= 50;
 
                         return (
                             <div key={dim.key}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', padding: '0 5px' }}>
+                                    {/* 왼쪽 지표 이름 */}
                                     <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px' }}>
                                         {dim.left}
                                     </span>
+                                    
+                                    {/* 퍼센트 숫자 표시 (반올림된 정수 사용) */}
                                     <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: 'bold' }}>
-                                        {isLeftStrong ? `${leftPercent}%` : `${rightPercent}%`}
+                                        {isLeftStrong ? `${finalLeftPercent}%` : `${finalRightPercent}%`}
                                     </span>
+                                    
+                                    {/* 오른쪽 지표 이름 */}
                                     <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: !isLeftStrong ? '#8b5cf6' : '#9ca3af', width: '30px', textAlign: 'right' }}>
                                         {dim.right}
                                     </span>
                                 </div>
+
+                                {/* 게이지 바 배경 */}
                                 <div style={{ width: '100%', height: '14px', background: '#e5e7eb', borderRadius: '7px', position: 'relative', overflow: 'hidden' }}>
                                     <div style={{ 
                                         position: 'absolute', 
                                         top: 0, 
+                                        // 강한 쪽 방향에서 시작하도록 설정
                                         left: isLeftStrong ? 0 : 'auto', 
                                         right: !isLeftStrong ? 0 : 'auto', 
-                                        width: `${isLeftStrong ? leftPercent : rightPercent}%`, 
+                                        // 정수 퍼센트 적용
+                                        width: `${isLeftStrong ? finalLeftPercent : finalRightPercent}%`, 
                                         height: '100%', 
                                         background: 'linear-gradient(to right, #8b5cf6, #a78bfa)', 
                                         borderRadius: '7px', 
